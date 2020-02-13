@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<REMOTE_CONTROL>
+  <General Name="Pearl TV"/>
+  <Keys Count="48">
+    <Key1 Raw=" m800 s950 m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m850 s950 m1700 s950 m800" Code="$C" Name="power" CodeBits="12" CodeType="RC5"/>
+    <Key2 Raw=" m800 s950 m850 s900 m1750 s950 m800 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s1850 m800 s950 m1700 s1850 m800" Code="$80D" Name="speaker" CodeBits="12" CodeType="RC5"/>
+    <Key3 Raw="" Code="$FFFFFFFF" Name="LEARN" CodeBits="" CodeType=""/>
+    <Key4 Raw=" m800 s1350 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s900 m400 s500 m400 s500 m350 s500 m400 s500 m400 s900 m400 s1800 m400" Code="$81AF2244" Name="AV" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key5 Raw=" m800 s950 m1700 s950 m850 s950 m800 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s1850 m800 s950 m1700 s950 m800" Code="$C" Name="ALL OFF" CodeBits="12" CodeType="RC5"/>
+    <Key6 Raw=" m8800 s4450 m550 s1700 m500 s600 m500 s600 m500 s650 m500 s600 m500 s600 m500 s600 m550 s600 m500 s600 m500 s1700 m550 s1700 m500 s1700 m550 s1700 m500 s1700 m500 s1750 m500 s1700 m500 s600 m550 s600 m500 s600 m500 s600 m500 s1750 m500 s600 m500 s1700 m550 s600 m500 s1700 m500 s1700 m550 s1700 m500 s1700 m550 s600 m500 s1700 m500 s600 m550 s1700 m500" Code="$807F0AF5" Name="FAV" CodeBits="32" CodeType="NEC"/>
+    <Key7 Raw=" m8750 s4500 m500 s1700 m500 s1750 m500 s600 m500 s600 m500 s650 m500 s600 m500 s600 m500 s600 m550 s600 m500 s600 m500 s1700 m550 s1700 m500 s1700 m500 s1750 m500 s1700 m500 s1750 m500 s600 m500 s600 m500 s600 m550 s600 m500 s1700 m500 s650 m500 s1700 m500 s600 m500 s1750 m500 s1700 m500 s1700 m550 s1700 m500 s600 m500 s1750 m500 s600 m500 s1700 m500" Code="$C03F0AF5" Name="PIP" CodeBits="32" CodeType="NEC"/>
+    <Key8 Raw=" m800 s1350 m400 s500 m350 s550 m350 s950 m350 s500 m400 s500 m400 s500 m350 s550 m350 s950 m350 s950 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s900 m400 s500 m400 s1800 m350" Code="$4D829FCF" Name="SLEEP" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key9 Raw=" m800 s1350 m400 s500 m400 s500 m350 s950 m400 s500 m350 s500 m400 s500 m400 s500 m350 s950 m400 s900 m400 s500 m400 s500 m350 s950 m400 s500 m350 s950 m400 s500 m350 s950 m350 s1850 m350" Code="$31B1860E" Name="BACK" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key10 Raw=" m800 s950 m1700 s950 m850 s900 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s1850 m800" Code="$1" Name="1" CodeBits="12" CodeType="RC5"/>
+    <Key11 Raw=" m850 s950 m800 s950 m1650 s1000 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1850 m1700" Code="$802" Name="2" CodeBits="12" CodeType="RC5"/>
+    <Key12 Raw=" m850 s950 m1700 s950 m800 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1850 m800 s950 m850" Code="$3" Name="3" CodeBits="12" CodeType="RC5"/>
+    <Key13 Raw=" m850 s950 m800 s950 m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m850 s950 m800 s1800 m1750 s950 m800" Code="$804" Name="4" CodeBits="12" CodeType="RC5"/>
+    <Key14 Raw=" m850 s950 m1700 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m1700 s1850 m850" Code="$5" Name="5" CodeBits="12" CodeType="RC5"/>
+    <Key15 Raw=" m850 s950 m800 s950 m1650 s1000 m850 s900 m850 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m850 s950 m1650" Code="$806" Name="6" CodeBits="12" CodeType="RC5"/>
+    <Key16 Raw=" m850 s950 m1700 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1850 m800 s950 m800 s950 m850" Code="$7" Name="7" CodeBits="12" CodeType="RC5"/>
+    <Key17 Raw=" m800 s950 m800 s950 m1700 s1000 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m1700 s950 m850 s950 m800" Code="$808" Name="8" CodeBits="12" CodeType="RC5"/>
+    <Key18 Raw=" m850 s950 m1700 s950 m800 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s950 m800 s1850 m1700 s1850 m800 s950 m800" Code="$B" Name="MENU" CodeBits="12" CodeType="RC5"/>
+    <Key19 Raw=" m800 s950 m1700 s950 m800 s950 m850 s900 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1800 m1750 s900 m850 s1800 m850" Code="$9" Name="9" CodeBits="12" CodeType="RC5"/>
+    <Key20 Raw=" m800 s950 m850 s950 m1650 s1000 m800 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800" Code="$800" Name="0" CodeBits="12" CodeType="RC5"/>
+    <Key21 Raw=" m850 s1350 m400 s1800 m350" Code="$4CB0FADC" Name="+/-" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key22 Raw=" m800 s1000 m750 s1000 m1700 s950 m750 s1000 m800 s1000 m750 s1000 m800 s950 m800 s1850 m1700 s1850 m1650 s1900 m750" Code="$815" Name="VOL +" CodeBits="12" CodeType="RC5"/>
+    <Key23 Raw=" m850 s900 m850 s950 m1700 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m850 s950 m1700 s950 m800 s950 m800" Code="$818" Name="CH +" CodeBits="12" CodeType="RC5"/>
+    <Key24 Raw=" m800 s950 m1650 s1000 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m850 s1800 m1650 s1900 m1650 s1000 m850" Code="$14" Name="VOL -" CodeBits="12" CodeType="RC5"/>
+    <Key25 Raw=" m850 s900 m1700 s1000 m800 s950 m800 s950 m850 s900 m850 s950 m800 s950 m800 s1850 m1650 s1900 m800 s950 m850 s900 m850" Code="$17" Name="CH -" CodeBits="12" CodeType="RC5"/>
+    <Key26 Raw=" m800 s950 m1700 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m1700 s950 m850 s950 m800 s950 m800 s950 m850" Code="$20" Name="up" CodeBits="12" CodeType="RC5"/>
+    <Key27 Raw=" m850 s950 m800 s950 m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1850 m1700 s950 m800 s950 m850 s1800 m850" Code="$811" Name="left" CodeBits="12" CodeType="RC5"/>
+    <Key28 Raw=" m850 s950 m800 s950 m1650 s1000 m800 s950 m850 s950 m800 s950 m800 s1850 m1650 s1000 m800 s1850 m850 s900 m1700" Code="$826" Name="OK" CodeBits="12" CodeType="RC5"/>
+    <Key29 Raw=" m850 s950 m1700 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s950 m850 s1800 m1700 s950 m850 s950 m800 s950 m800" Code="$10" Name="right" CodeBits="12" CodeType="RC5"/>
+    <Key30 Raw=" m800 s950 m800 s950 m1750 s900 m850 s950 m800 s950 m800 s950 m850 s1800 m1700 s950 m850 s900 m850 s950 m800 s1800 m850" Code="$821" Name="down" CodeBits="12" CodeType="RC5"/>
+    <Key31 Raw="" Code="$FFFFFFFF" Name="record" CodeBits="" CodeType=""/>
+    <Key32 Raw="" Code="$FFFFFFFF" Name="pause" CodeBits="" CodeType=""/>
+    <Key33 Raw="" Code="$FFFFFFFF" Name="play" CodeBits="" CodeType=""/>
+    <Key34 Raw="" Code="$FFFFFFFF" Name="backward" CodeBits="" CodeType=""/>
+    <Key35 Raw=" m850 s1350 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s500 m350 s500 m400 s950 m350 s950 m350 s950 m400 s500 m350 s500 m400 s950 m350 s950 m400 s500 m350 s500 m400 s1800 m400" Code="$A8ED29F9" Name="stop" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key36 Raw="" Code="$FFFFFFFF" Name="forward" CodeBits="" CodeType=""/>
+    <Key37 Raw=" m1700 s950 m800 s950 m800 s1000 m800 s950 m800 s1000 m800 s950 m800 s950 m850 s950 m800 s1850 m800 s950 m850 s950 m1700" Code="$AD297272" Name="GUIDE" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key38 Raw=" m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m850 s950 m800 s950 m800 s1850 m850 s950 m800 s950 m800 s950 m850" Code="$706BC8C7" Name="i" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key39 Raw=" m800 s950 m850 s900 m1750 s900 m850 s950 m800 s950 m850 s900 m850 s1800 m850 s950 m800 s950 m850 s900 m1750 s900 m850" Code="$83C" Name="TEXT" CodeBits="12" CodeType="RC5"/>
+    <Key40 Raw="" Code="$FFFFFFFF" Name="PAGE +" CodeBits="" CodeType=""/>
+    <Key41 Raw=" m750 s1000 m1700 s950 m800 s950 m800 s1000 m800 s950 m800 s1000 m750 s1900 m800 s950 m800 s950 m800 s1000 m800 s950 m800 s950 m800" Code="$3F" Name="EXIT" CodeBits="12" CodeType="RC5"/>
+    <Key42 Raw=" m850 s1350 m350 s500 m400 s500 m400 s900 m400 s500 m400 s500 m350 s500 m400 s500 m400 s900 m400 s950 m350 s950 m400 s500 m350 s500 m400 s500 m400 s500 m350 s950 m400 s900 m400 s1800 m400" Code="$38BF10AA" Name="resume" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key43 Raw=" m850 s1350 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s500 m350 s500 m400 s950 m350 s950 m400 s500 m350 s500 m400 s950 m350 s500 m400 s500 m400 s500 m350 s950 m400 s1800 m350" Code="$4AF2545C" Name="X" CodeBits="32" CodeType="UNKNOWN"/>
+    <Key44 Raw="" Code="$FFFFFFFF" Name="PAGE -" CodeBits="" CodeType=""/>
+    <Key45 Raw=" m800 s950 m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s950 m800 s1850 m800 s950 m1700 s1850 m850 s900 m850" Code="$1B" Name="red" CodeBits="12" CodeType="RC5"/>
+    <Key46 Raw=" m800 s950 m800 s950 m1700 s950 m850 s950 m800 s950 m800 s950 m850 s950 m800 s1850 m800 s950 m1650 s1900 m1700" Code="$81A" Name="green" CodeBits="12" CodeType="RC5"/>
+    <Key47 Raw=" m850 s950 m1700 s950 m850 s900 m850 s950 m800 s950 m850 s950 m800 s1800 m1750 s1800 m1750 s1800 m850 s900 m850" Code="$2B" Name="yellow" CodeBits="12" CodeType="RC5"/>
+    <Key48 Raw=" m800 s1000 m800 s950 m1700 s950 m800 s1000 m800 s950 m800 s950 m850 s1800 m1700 s1850 m1700 s950 m850 s900 m800" Code="$828" Name="blue" CodeBits="12" CodeType="RC5"/>
+  </Keys>
+</REMOTE_CONTROL>
