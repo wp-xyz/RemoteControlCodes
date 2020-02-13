@@ -1,0 +1,99 @@
+object SetupRemoteControlForm: TSetupRemoteControlForm
+  Left = 256
+  Height = 371
+  Top = 127
+  Width = 450
+  Caption = 'Set up remote control'
+  ClientHeight = 371
+  ClientWidth = 450
+  LCLVersion = '2.1.0.0'
+  object ButtonPanel: TButtonPanel
+    Left = 6
+    Height = 34
+    Top = 331
+    Width = 438
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 325
+    Top = 0
+    Width = 450
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 325
+    ClientWidth = 450
+    TabOrder = 0
+    object lblName: TLabel
+      AnchorSideLeft.Control = Panel1
+      AnchorSideTop.Control = edName
+      AnchorSideTop.Side = asrCenter
+      Left = 12
+      Height = 15
+      Top = 16
+      Width = 151
+      BorderSpacing.Left = 12
+      BorderSpacing.Top = 12
+      Caption = 'Name of the remote control:'
+      ParentColor = False
+    end
+    object edName: TEdit
+      AnchorSideLeft.Control = lblName
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Panel1
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 175
+      Height = 23
+      Top = 12
+      Width = 263
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Left = 12
+      BorderSpacing.Top = 12
+      BorderSpacing.Right = 12
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      AnchorSideLeft.Control = lblName
+      AnchorSideTop.Control = edName
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = edName
+      AnchorSideRight.Side = asrBottom
+      Left = 12
+      Height = 30
+      Top = 51
+      Width = 426
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 16
+      Caption = 'Please specify the names of the keys for which the codes will be determined.'#13#10'Enter each key name in a separate line.'
+      ParentColor = False
+      WordWrap = True
+    end
+    object KeysMemo: TMemo
+      AnchorSideLeft.Control = Label1
+      AnchorSideTop.Control = Label1
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = Label1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel1
+      AnchorSideBottom.Side = asrBottom
+      Left = 12
+      Height = 232
+      Top = 93
+      Width = 426
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Top = 12
+      ScrollBars = ssAutoBoth
+      TabOrder = 1
+    end
+  end
+end

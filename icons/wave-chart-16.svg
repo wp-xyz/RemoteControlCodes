@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 4.233333 4.233333"
+   version="1.1"
+   id="svg1397"
+   inkscape:export-filename="D:\Prog_Lazarus\arduino_remote_control\icons\wave-chart-16.png"
+   inkscape:export-xdpi="96.000008"
+   inkscape:export-ydpi="96.000008"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="wave-chart-16.svg">
+  <defs
+     id="defs1391" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="14.602143"
+     inkscape:cy="27.008391"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     showguides="true"
+     inkscape:window-width="2560"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1942" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata1394">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-292.76667)">
+    <path
+       style="fill:#2c89a0;fill-opacity:1;stroke:none;stroke-width:0.28353038px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -0.02035247,295.41251 h 0.28493584 v -1.85209 H 1.3229167 v 1.85209 h 0.7937499 v -1.85209 h 1.5874999 v 1.85209 h 0.5291666 v 0.26458 H 3.4395832 v -1.85208 H 2.3812499 v 1.85208 H 1.0583333 v -1.85208 H 0.52916668 v 1.85208 L 0,295.67709 v -0.26459"
+       id="path2611"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccccccc" />
+    <path
+       style="fill:#87cdde;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 6.25e-8,295.67709 H 0.52916668 v -1.85208 H 1.0583333 v 1.85208 h 1.3229166 v -1.85208 h 1.0583332 v 1.85208 h 0.79375 l -1e-7,0.52916 H 0 Z"
+       id="path2652"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccc" />
+  </g>
+</svg>

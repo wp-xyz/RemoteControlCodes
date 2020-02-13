@@ -1,0 +1,177 @@
+object SerPortForm: TSerPortForm
+  Left = 622
+  Height = 247
+  Top = 261
+  Width = 286
+  ActiveControl = cmbPort
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Serial port settings'
+  ClientHeight = 247
+  ClientWidth = 286
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '2.1.0.0'
+  object MainPanel: TPanel
+    Left = 0
+    Height = 201
+    Top = 0
+    Width = 286
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 201
+    ClientWidth = 286
+    TabOrder = 0
+    object lblBaudRate: TLabel
+      Left = 24
+      Height = 15
+      Top = 72
+      Width = 50
+      Caption = 'Baudrate:'
+      ParentColor = False
+    end
+    object lblParity: TLabel
+      Left = 160
+      Height = 15
+      Top = 72
+      Width = 30
+      Caption = 'Parity'
+      ParentColor = False
+    end
+    object lblDatabits: TLabel
+      Left = 24
+      Height = 15
+      Top = 136
+      Width = 46
+      Caption = 'Data bits'
+      ParentColor = False
+    end
+    object lblStopBits: TLabel
+      Left = 160
+      Height = 15
+      Top = 136
+      Width = 46
+      Caption = 'Stop bits'
+      ParentColor = False
+    end
+    object lblPort: TLabel
+      Left = 24
+      Height = 15
+      Top = 12
+      Width = 25
+      Caption = 'Port:'
+      ParentColor = False
+    end
+    object cmbBaudRate: TComboBox
+      Left = 24
+      Height = 23
+      Top = 92
+      Width = 100
+      ItemHeight = 15
+      Items.Strings = (
+        '0'
+        '50'
+        '75'
+        '110'
+        '134'
+        '150'
+        '200'
+        '300'
+        '600'
+        '1200'
+        '1800'
+        '2400'
+        '4800'
+        '9600'
+        '19200'
+        '38400'
+        '57600'
+        '115200'
+        '230400'
+        '460800'
+        '500000'
+        '576000'
+        '921600'
+        '1000000'
+        '1152000'
+        '1500000'
+        '2000000'
+        '2500000'
+        '3000000'
+        '3500000'
+        '4000000'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object cmbParity: TComboBox
+      Left = 160
+      Height = 23
+      Top = 92
+      Width = 100
+      ItemHeight = 15
+      Items.Strings = (
+        'N - none'
+        'O - odd'
+        'E - even'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object cmbDatabits: TComboBox
+      Left = 24
+      Height = 23
+      Top = 156
+      Width = 100
+      ItemHeight = 15
+      Items.Strings = (
+        '4'
+        '5'
+        '6'
+        '7'
+        '8'
+      )
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object cmbStopBits: TComboBox
+      Left = 160
+      Height = 23
+      Top = 156
+      Width = 100
+      ItemHeight = 15
+      Items.Strings = (
+        '1'
+        '2'
+      )
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object cmbPort: TComboBox
+      Left = 24
+      Height = 23
+      Top = 32
+      Width = 100
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object ButtonPanel: TButtonPanel
+    Left = 6
+    Height = 34
+    Top = 207
+    Width = 274
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK, pbCancel]
+  end
+end

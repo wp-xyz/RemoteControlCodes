@@ -1,0 +1,29 @@
+rcc.ico - original image "fernbedienung.png", 512x512 pixels, created by
+  <a href="https://www.flaticon.com/de/autoren/freepik" title="Freepik">Freepik</a>
+  from <a href="https://www.flaticon.com/de/" title="Flaticon"> www.flaticon.com</a>
+  Used Axialis IconWorkshop to derive the other resolutions and combine the
+  individual images to an ico file.
+  
+wave_chart.svg - self-made
+
+The other png toolbar icons were downloaded from www.icons8.com.
+
+--------------------------------------------------------------------------------
+flaticon license: https://profile.flaticon.com/license/free
+
+"FREE LICENSE (WITH ATTRIBUTION) - This license allows you to use for free any 
+of Flaticon's contents for your projects as long as they are attributed to their 
+author in the definitive project.
+
+How to attribute contents?
+- For web usage: By placing a link with the text "designed by from Flaticon" in 
+  a visible spot, so 's authorship is noticeable.
+- Uses different to web: If possible, the text "designed by from Flaticon" must 
+  be written next to Flaticon Contents, if it's not possible, the attribution 
+  must be placed in the credits or acknowledgements section."
+
+--------------------------------------------------------------------------------
+Icons8 license: https://icons8.com/license/ 
+
+"Desktop Apps: macOS and Windows applications should have the link to 
+https://icons8.com in the About dialog."
