@@ -36,7 +36,7 @@ var
   CodeFormatMask: String = '$%x';
 
 const
-  APP_CAPTION = 'Arduino Remote Control Codes';
+  APP_CAPTION = 'Remote Control Codes';
   RCF_ROOT = 'REMOTE_CONTROL';
 
 

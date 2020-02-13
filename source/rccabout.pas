@@ -19,7 +19,7 @@ type
     lblFlatIcon: TLabel;
     lblAppIconAuthor: TLabel;
     lblAppIcon: TLabel;
-    lblAcknowledgements: TLabel;
+    lblCredits: TLabel;
     lblCompiler: TLabel;
     lblFPC: TLabel;
     lblIcons: TLabel;

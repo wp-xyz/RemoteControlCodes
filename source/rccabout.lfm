@@ -39,23 +39,23 @@ object AboutForm: TAboutForm
     ParentColor = False
     ParentFont = False
   end
-  object lblAcknowledgements: TLabel
+  object lblCredits: TLabel
     AnchorSideLeft.Control = AppImage
     AnchorSideTop.Control = AppImage
     AnchorSideTop.Side = asrBottom
     Left = 12
     Height = 15
     Top = 164
-    Width = 114
+    Width = 39
     BorderSpacing.Top = 24
-    Caption = 'Acknowledgements:'
+    Caption = 'Credits'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
   end
   object Panel1: TPanel
-    AnchorSideLeft.Control = lblAcknowledgements
-    AnchorSideTop.Control = lblAcknowledgements
+    AnchorSideLeft.Control = lblCredits
+    AnchorSideTop.Control = lblCredits
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = lblTitle
     AnchorSideRight.Side = asrBottom
