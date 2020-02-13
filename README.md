@@ -13,7 +13,9 @@ Needed parts:
 ![Circuit
 ](https://github.com/wp-xyz/RemoteControlCodes/blob/master/arduino/arduino%20circuit/circuit.png)
 
-Connect the Arduino to the PC via an USB cable and load the `codes.ino` sketch (in folder `arduino/codes`) to the Arduino.
+* Connect the output of the IR receiver (pin 1) to digital pin 7 of the Arduino.
+* Connect the digital output pin 3 of the Arduino Nano to the anode of the IR light-emitting-diode via the 220 ohms resistor. Note that this output pin cannot be changed. A different pin may be required for other Arduino models.
+* Connect the Arduino to the PC via an USB cable and upload the `codes.ino` sketch (in folder `arduino/codes`) to the Arduino.
 
 ## Usage of the program
 * Open "Codes" > "Set up remote control". Define the name of the remote control and enter the labels of the remote control key
