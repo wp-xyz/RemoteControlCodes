@@ -805,9 +805,12 @@ begin
 end;
 
 procedure TMainForm.TransmitCode;
+const
+  n = 3;
+  REPEAT_DELAY = 20;
 var
   code: TRemoteControlCode;
-  n: Word;
+  nRaw: Word;
   i: Integer;
   s: String;
 begin
@@ -829,7 +832,9 @@ begin
     // - bits
     Memo.Lines.Add('Sending %s code %s (%d bits)', [code.CodeTypeName, code.CodeToString, code.Bits]);
     s := Format('%d,%d,%d ', [byte(code.CodeType), code.Code, code.Bits]);
-    FSerialDevice.Transmit(s[1], Length(s));
+    // Send code n times
+    for i := 1 to n do
+      FSerialDevice.Transmit(s[1], Length(s));
   end else
   if (code.CodeType = ctUNKNOWN) then
   begin
@@ -837,12 +842,16 @@ begin
     // - code type (-1)
     // - count of marks and spaces
     // - times of marks and spaces in µs.
-    n := Length(code.Raw);
-    s := IntToStr(byte(code.CodeType)) + ',' + IntToStr(n);
-    for i := 0 to n-1 do
+    nRaw := Length(code.Raw);
+    s := IntToStr(byte(code.CodeType)) + ',' + IntToStr(nRaw);
+    for i := 0 to nRaw-1 do
       s := s + ',' + IntToStr(code.Raw[i]);
-    Memo.Lines.Add('Sending %d raw mark/space times', [n]);
-    FSerialDevice.Transmit(s[1], Length(s));
+    Memo.Lines.Add('Sending %d raw mark/space times', [nRaw]);
+    // Send code n times
+    for i := 1 to n do begin
+      FSerialDevice.Transmit(s[1], Length(s));
+      Sleep(REPEAT_DELAY);
+    end;
   end;
 end;
 
