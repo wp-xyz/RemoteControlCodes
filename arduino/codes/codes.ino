@@ -157,10 +157,12 @@ void process_send() {
         default:
           break;
       }   
+      // Wait between repetitions
+      delay(50);  
     }
   }  
 
-  delay(50);
+  //delay(50);
   
   // Remove remaining separators for the serial buffer. The buffer must be empty.
   while (Serial.available() > 0) { 
