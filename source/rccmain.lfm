@@ -973,14 +973,6 @@ object MainForm: TMainForm
     left = 512
     top = 352
   end
-  object MRUMenuManager: TMRUMenuManager
-    MenuItem = mnuFileOpenRecent
-    PopupMenu = RecentFilePopup
-    MenuCaptionMask = '%0:d.  %1:s'
-    OnRecentFile = RecentFileHandler
-    left = 617
-    top = 306
-  end
   object RecentFilePopup: TPopupMenu
     left = 464
     top = 286

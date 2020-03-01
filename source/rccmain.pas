@@ -51,7 +51,6 @@ type
     mnuHelp: TMenuItem;
     mnuFileOpenRecent: TMenuItem;
     mnuClearLog: TMenuItem;
-    MRUMenuManager: TMRUMenuManager;
     N4: TMenuItem;
     mnuClearCodes: TMenuItem;
     mnuClearCodesAndKeys: TMenuItem;
@@ -128,6 +127,7 @@ type
     procedure RecentFileHandler(Sender: TObject; const AFileName: String
       );
   private
+    MRUManager: TMRUMenuManager;
     FCodeList: TRemoteControlCodeList;
     //FCodeFormatMask: String;
 
