@@ -67,6 +67,7 @@ object SerPortForm: TSerPortForm
       Height = 23
       Top = 92
       Width = 100
+      DropDownCount = 32
       ItemHeight = 15
       Items.Strings = (
         '0'

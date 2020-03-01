@@ -16,8 +16,8 @@
 
 const int LED_PIN = 12;        // pin for debugging LED
 const int RECV_PIN = 7;        // any pin is allowed
-const int SEND_PIN = 3;        // hard-coded in IRremote library for ATMega328 --> change for others
-const int BAUD_RATE = 9600;    // Baudrate used for serial communication
+//const int SEND_PIN = 3;      // hard-coded in IRremote library for ATMega328 --> change for others
+const int BAUD_RATE = 9600;   // Baudrate used for serial communication
 const char SEPARATOR = ';';
 const char START_CHAR = '!';
 const int DEBUG_MODE = 0;
