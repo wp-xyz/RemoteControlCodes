@@ -158,7 +158,7 @@ void process_send() {
           break;
       }   
       // Wait between repetitions
-      delay(50);  
+      delay(10);  
     }
   }  
 
