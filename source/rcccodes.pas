@@ -23,6 +23,8 @@ type
     procedure Clear;
     function IsEmpty: Boolean;
     function RawToString: String;
+    procedure SaveCodeAsWAV(const AFileName: String); overload;
+    procedure SaveCodeAsWAV(const AStream: TStream); overload;
     procedure SetCodeTypeFromString(const AString: String);
     function StringToRaw(const AString: String): TMarkSpaceArray;
   end;
@@ -33,8 +35,10 @@ type
     procedure SetItem(AIndex: Integer; const AValue: TRemoteControlCode);
   public
     procedure ClearCodes;
+    function IsEmpty: Boolean;
     procedure ListKeys(AList: TStrings);
     procedure PopulateFromKeyList(AList: TStrings);
+    procedure SaveCodesAsWav(ADirectory: String);
     property Items[AIndex: Integer]: TRemoteControlCode read GetItem write SetItem; default;
   end;
 
@@ -42,7 +46,8 @@ type
 implementation
 
 uses
-  TypInfo;
+  TypInfo, LazFileUtils,
+  fpWavFormat, fpWavWriter;
 
 { TRemoteControlCode }
 
@@ -115,7 +120,7 @@ const
 var
   i: Integer;
 begin
-   if Length(Raw) = 0 then
+   if (Raw = nil) or (Length(Raw) = 0) then
      Result := ''
    else
    begin
@@ -123,6 +128,82 @@ begin
      for i := 1 to High(Raw) do
        Result := Format('%s %s%d', [Result, MARK_SPACE[i mod 2], Raw[i]]);
    end;
+end;
+
+procedure TRemoteControlCode.SaveCodeAsWAV(const AFileName: String);
+var
+  stream: TFileStream;
+begin
+  stream := TFileStream.Create(AFileName, fmCreate + fmShareDenyNone);
+  try
+    SaveCodeAsWAV(stream);
+  finally
+    stream.Free;
+  end;
+end;
+
+procedure TRemoteControlCode.SaveCodeAsWAV(const AStream: TStream);
+const
+  SAMPLE_RATE = 44100;  // Hz
+  MODULATION_FREQUENCY = 38000 * 1E-3;  // kHz
+  MAX_SIGNAL = $7FFF;
+  PLUS_MINUS: array[0..1] of Integer = (+1, -1);
+var
+  writer: TWavWriter;
+  t, dt: double;
+  tRaw: Double;
+  channel: byte;
+  i: Integer;
+  isMark: Boolean;
+  buf: Int16;
+  done: Boolean;
+begin
+  dt := 1.0 / SAMPLE_RATE * 1E3;  // ms
+  writer := TWavWriter.Create;
+  try
+    with writer do
+    begin
+      StoreToStream(AStream);
+      fmt.ChunkHeader.ID := AUDIO_CHUNK_ID_fmt;
+      fmt.Format := AUDIO_FORMAT_PCM;
+      fmt.Channels := 1;  // mono
+      fmt.SampleRate := SAMPLE_RATE;
+      fmt.BitsPerSample := 16;
+      fmt.BlockAlign := fmt.Channels * fmt.BitsPerSample div 8;
+      fmt.ByteRate := fmt.Channels * fmt.SampleRate * fmt.BitsPerSample div 8;
+
+      t := 0.0;
+      i := 0;
+      isMark := true;
+      tRaw := Raw[0] * 1E-3;
+      channel := 0;
+      done := false;
+      while not done do begin
+        if isMark then
+        begin
+          buf := round(PLUS_MINUS[channel] * MAX_SIGNAL * sin(t * pi*MODULATION_FREQUENCY));
+          channel := (channel + 1) mod 2;
+        end else
+          buf := 0;
+        WriteBuf(buf, SizeOf(buf));
+
+        t := t + dt;
+        if t > tRaw then
+        begin
+          isMark := not isMark;
+          inc(i);
+          if i = Length(Raw) then
+            isMark := not isMark;
+          if i < Length(Raw) then
+            tRaw := tRaw + Raw[i] * 1E-3
+          else
+            done := true;
+        end;
+      end;
+    end;
+  finally
+    writer.Free;
+  end;
 end;
 
 procedure TRemoteControlCode.SetCodeTypeFromString(const AString: String);
@@ -181,6 +262,17 @@ begin
   Result := TRemoteControlCode(inherited Items[AIndex]);
 end;
 
+function TRemoteControlCodeList.IsEmpty: Boolean;
+var
+  i: Integer;
+begin
+  Result := false;
+  for i := 0 to Count-1 do
+    if (Items[i].KeyName <> '') and (Length(Items[i].Raw) > 0) then
+      exit;
+  Result := true;
+end;
+
 procedure TRemoteControlCodeList.ListKeys(AList: TStrings);
 var
   i: Integer;
@@ -205,6 +297,31 @@ begin
   for i:=0 to AList.Count - 1 do begin
     Add(TRemoteControlCode.Create(AList[i]));
   end;
+end;
+
+procedure TRemoteControlCodeList.SaveCodesAsWav(ADirectory: String);
+var
+  i, j: Integer;
+  fn: String;
+begin
+  for i := 0 to Count-1 do
+    if (Items[i].KeyName <> '') and (Length(Items[i].Raw) > 0) then
+    begin
+      fn := Items[i].KeyName;
+      for j := Length(fn) downto 1 do
+        case fn[j] of
+          ':', '/', '\': fn[j] := '_';
+          '+': begin
+                 System.Delete(fn, j, 1);
+                 System.Insert('plus', fn, j);
+               end;
+          '-': begin
+                 System.Delete(fn, j, 1);
+                 System.Insert('minus', fn, j);
+               end;
+        end;
+      Items[i].SaveCodeAsWav(AppendPathDelim(ADirectory) + fn + '.wav');
+    end;
 end;
 
 procedure TRemoteControlCodeList.SetItem(AIndex: Integer;

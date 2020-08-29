@@ -33,6 +33,7 @@ type
     acCodesChart: TAction;
     acConnect: TAction;
     acAbout: TAction;
+    acSaveCodesAsWAV: TAction;
     ActionList: TActionList;
     Chart: TChart;
     edName: TEdit;
@@ -48,6 +49,7 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
     mnuHelp: TMenuItem;
     mnuFileOpenRecent: TMenuItem;
     mnuClearLog: TMenuItem;
@@ -78,6 +80,7 @@ type
     pgCodes: TTabSheet;
     pgLog: TTabSheet;
     ChartSplitter: TSplitter;
+    SelectDirectoryDialog: TSelectDirectoryDialog;
     ToolBar1: TToolBar;
     tbOpen: TToolButton;
     tbQuit: TToolButton;
@@ -91,6 +94,7 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
     procedure acAboutExecute(Sender: TObject);
     procedure acClearCodesAndKeysExecute(Sender: TObject);
     procedure acClearCodesExecute(Sender: TObject);
@@ -103,6 +107,7 @@ type
     procedure acFileQuitExecute(Sender: TObject);
     procedure acFileSaveAsExecute(Sender: TObject);
     procedure acFileSaveExecute(Sender: TObject);
+    procedure acSaveCodesAsWAVExecute(Sender: TObject);
     procedure acSendExecute(Sender: TObject);
     procedure acSerialPortExecute(Sender: TObject);
     procedure acSetupKeysExecute(Sender: TObject);
@@ -119,18 +124,9 @@ type
     procedure GridKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure GridSelectCell(Sender: TObject; aCol, aRow: Integer;
       var CanSelect: Boolean);
-    (*
-    procedure RawCodesChartSourceGetChartDataItem(
-      ASource: TUserDefinedChartSource; AIndex: Integer;
-      var AItem: TChartDataItem);
-      *)
-    procedure RecentFileHandler(Sender: TObject; const AFileName: String
-      );
+    procedure RecentFileHandler(Sender: TObject; const AFileName: String);
   private
-    MRUManager: TMRUMenuManager;
     FCodeList: TRemoteControlCodeList;
-    //FCodeFormatMask: String;
-
     FSerialDevice: TSerialDevice;
     FRunning: Boolean;
     FFileName: String;
@@ -176,7 +172,7 @@ implementation
 {$R *.lfm}
 
 uses
-  LCLType, IniFiles, TypInfo, Serial,
+  LCLType, IniFiles, TypInfo, LazFileUtils, Serial,
   rccUtils, rccSerialPortSettings, rccSetupRemoteControl, rccAbout;
 
 
@@ -288,6 +284,16 @@ begin
     SaveCodes(FFileName);
 end;
 
+procedure TMainForm.acSaveCodesAsWAVExecute(Sender: TObject);
+begin
+  with SelectDirectoryDialog do
+  begin
+    InitialDir := ExtractFileDir(FFileName);
+    if Execute then
+      FCodeList.SaveCodesAsWav(FileName);
+  end;
+end;
+
 procedure TMainForm.acSendExecute(Sender: TObject);
 begin
   TransmitCode;
@@ -344,6 +350,8 @@ begin
   code := GetCurrentCode;
   if (code <> nil) and Chart.Visible then
     Plot(code);
+
+  acSaveCodesAsWAV.Enabled := not FCodeList.IsEmpty;
 end;
 
 procedure TMainForm.CodeTimerTimer(Sender: TObject);
