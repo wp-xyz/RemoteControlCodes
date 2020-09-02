@@ -147,18 +147,16 @@ const
   SAMPLE_RATE = 44100;  // Hz
   MODULATION_FREQUENCY = 38000 * 1E-3;  // kHz
   MAX_SIGNAL = $7FFF;
-  PLUS_MINUS: array[0..1] of Integer = (+1, -1);
 var
   writer: TWavWriter;
   t, dt: double;
   tRaw: Double;
-  channel: byte;
   i: Integer;
   isMark: Boolean;
   buf: Int16;
   done: Boolean;
 begin
-  dt := 1.0 / SAMPLE_RATE * 1E3;  // ms
+  dt := 2.0 / SAMPLE_RATE * 1E3;  // ms   // We get two samples per time
   writer := TWavWriter.Create;
   try
     with writer do
@@ -166,7 +164,7 @@ begin
       StoreToStream(AStream);
       fmt.ChunkHeader.ID := AUDIO_CHUNK_ID_fmt;
       fmt.Format := AUDIO_FORMAT_PCM;
-      fmt.Channels := 1;  // mono
+      fmt.Channels := 2;
       fmt.SampleRate := SAMPLE_RATE;
       fmt.BitsPerSample := 16;
       fmt.BlockAlign := fmt.Channels * fmt.BitsPerSample div 8;
@@ -176,16 +174,36 @@ begin
       i := 0;
       isMark := true;
       tRaw := Raw[0] * 1E-3;
-      channel := 0;
       done := false;
       while not done do begin
         if isMark then
         begin
-          buf := round(PLUS_MINUS[channel] * MAX_SIGNAL * sin(t * pi*MODULATION_FREQUENCY));
-          channel := (channel + 1) mod 2;
+          // We will modulate the signal by the half of the 38 kHz (19 kHz)
+          // in order to move the signal into the frequency range of the line
+          // output.
+          // The two channels will have the same signal, but in anti-phase.
+          // Thus, LED1 will emit when channel 1 is positive, and LED2 will
+          // emit when channel 2 is positive.
+          // This way the emitted light modulation will have double frequency
+          // of the modulation applied here, i.e. 38 kHz as needed by the
+          // TV's IR detector.
+
+          // channel 1
+          buf := round(MAX_SIGNAL * sin(t * pi*MODULATION_FREQUENCY));  // 19 kHz
+          WriteBuf(buf, SizeOf(buf));
+
+          // channel 2
+          buf := round(-MAX_SIGNAL * sin(t * pi*MODULATION_FREQUENCY));  // Note the '-'
+          WriteBuf(buf, SizeOf(buf));
         end else
+        begin
+          // Space --> no signal
           buf := 0;
-        WriteBuf(buf, SizeOf(buf));
+          // channel 1
+          WriteBuf(buf, SizeOf(buf));
+          // channel 2
+          WriteBuf(buf, Sizeof(buf));
+        end;
 
         t := t + dt;
         if t > tRaw then
