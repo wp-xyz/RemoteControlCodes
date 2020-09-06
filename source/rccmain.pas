@@ -50,6 +50,7 @@ type
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     mnuHelp: TMenuItem;
     mnuFileOpenRecent: TMenuItem;
     mnuClearLog: TMenuItem;
@@ -290,7 +291,10 @@ begin
   begin
     InitialDir := ExtractFileDir(FFileName);
     if Execute then
+    begin
       FCodeList.SaveCodesAsWav(FileName);
+      MessageDlg(Format('WAV files for all codes written to folder "%s"', [FileName]), mtInformation, [mbOK], 0);
+    end;
   end;
 end;
 

@@ -276,11 +276,11 @@ object MainForm: TMainForm
     end
     object pgLog: TTabSheet
       Caption = 'Log'
-      ClientHeight = 540
+      ClientHeight = 538
       ClientWidth = 895
       object Memo: TMemo
         Left = 0
-        Height = 528
+        Height = 526
         Top = 6
         Width = 889
         Align = alClient
@@ -953,6 +953,9 @@ object MainForm: TMainForm
       end
       object mnuFileOpenRecent: TMenuItem
         Caption = 'Open recent'
+      end
+      object MenuItem9: TMenuItem
+        Caption = '-'
       end
       object mnuFileSave: TMenuItem
         Action = acFileSave
