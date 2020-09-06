@@ -1,6 +1,7 @@
 unit rccCodes;
 
-{$mode objfpc}{$H+}
+{$MODE objfpc}{$H+}
+{.$DEFINE DEBUG_WAV_WRITER}
 
 interface
 
@@ -145,8 +146,12 @@ end;
 procedure TRemoteControlCode.SaveCodeAsWAV(const AStream: TStream);
 const
   SAMPLE_RATE = 44100;  // Hz
-  MODULATION_FREQUENCY = 38000 * 1E-3;  // kHz
+  MODULATION_FREQUENCY = 38000.0;  // Hz
   MAX_SIGNAL = $7FFF;
+  {$IFDEF DEBUG_WAV_WRITER}
+  SIGNAL_FREQUENCY = 1000.0;  // Hz
+  SIGNAL_DURATION = 1.0;     // s
+  {$ENDIF}
 var
   writer: TWavWriter;
   t, dt: double;
@@ -156,7 +161,8 @@ var
   buf: Int16;
   done: Boolean;
 begin
-  dt := 2.0 / SAMPLE_RATE * 1E3;  // ms   // We get two samples per time
+  //dt := 2.0 / SAMPLE_RATE * 1E3;  // ms   // We get two samples per time step
+  dt := 1.0 / SAMPLE_RATE;   // s;  we get two samples per time step
   writer := TWavWriter.Create;
   try
     with writer do
@@ -171,10 +177,21 @@ begin
       fmt.ByteRate := fmt.Channels * fmt.SampleRate * fmt.BitsPerSample div 8;
 
       t := 0.0;
-      i := 0;
-      isMark := true;
-      tRaw := Raw[0] * 1E-3;
       done := false;
+      i := 0;
+      {$IFDEF DEBUG_WAV_WRITER}
+      while not done do begin
+        buf := round(MAX_SIGNAL * sin(t * TWO_PI * SIGNAL_FREQUENCY));
+        WriteBuf(buf, SizeOf(buf));
+        buf := round(-MAX_SIGNAL * sin(t * TWO_PI * SIGNAL_FREQUENCY));
+        WriteBuf(buf, SizeOf(buf));
+        t := t + dt;
+        if t > SIGNAL_DURATION then
+          done := true;
+      end;
+      {$ELSE}
+      isMark := true;
+      tRaw := Raw[0] * 1E-6;  // Raw is in µs, we need seconds.
       while not done do begin
         if isMark then
         begin
@@ -213,11 +230,12 @@ begin
           if i = Length(Raw) then
             isMark := not isMark;
           if i < Length(Raw) then
-            tRaw := tRaw + Raw[i] * 1E-3
+            tRaw := tRaw + Raw[i] * 1E-6
           else
             done := true;
         end;
       end;
+      {$ENDIF}
     end;
   finally
     writer.Free;
@@ -339,6 +357,9 @@ begin
                end;
         end;
       Items[i].SaveCodeAsWav(AppendPathDelim(ADirectory) + fn + '.wav');
+      {$IFDEF DEBUG_WAV_WRITER}
+      break;
+      {$ENDIF}
     end;
 end;
 

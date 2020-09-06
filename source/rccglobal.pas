@@ -39,6 +39,8 @@ const
   APP_CAPTION = 'Remote Control Codes';
   RCF_ROOT = 'REMOTE_CONTROL';
 
+  TWO_PI = 2.0 * pi;
+
 
 implementation
 
