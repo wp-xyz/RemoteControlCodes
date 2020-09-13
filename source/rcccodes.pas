@@ -145,12 +145,12 @@ end;
 
 procedure TRemoteControlCode.SaveCodeAsWAV(const AStream: TStream);
 const
-  SAMPLE_RATE = 44100;  // Hz
-  MODULATION_FREQUENCY = 38000.0;  // Hz
+  SAMPLE_RATE = 44100;           // Hz
+  MODULATION_FREQUENCY = 38000;  // Hz
   MAX_SIGNAL = $7FFF;
   {$IFDEF DEBUG_WAV_WRITER}
-  SIGNAL_FREQUENCY = 1000.0;  // Hz
-  SIGNAL_DURATION = 1.0;     // s
+  SIGNAL_FREQUENCY = 1000.0;     // Hz
+  SIGNAL_DURATION = 1.0;         // s
   {$ENDIF}
 var
   writer: TWavWriter;
@@ -161,8 +161,7 @@ var
   buf: Int16;
   done: Boolean;
 begin
-  //dt := 2.0 / SAMPLE_RATE * 1E3;  // ms   // We get two samples per time step
-  dt := 1.0 / SAMPLE_RATE;   // s;  we get two samples per time step
+  dt := 1.0 / SAMPLE_RATE;
   writer := TWavWriter.Create;
   try
     with writer do
