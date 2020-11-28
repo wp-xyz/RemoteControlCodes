@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, XMLConf, Types, Forms, Controls, Graphics, Dialogs, Grids,
   StdCtrls, ExtCtrls, ActnList, Menus, ComCtrls,
-  TAGraph, TASeries, TASources, TACustomSource,
+  TAGraph, TASeries, TASources,
   mrumanager,
   rccGlobal, rccCodes, rccSerialDevice;
 
