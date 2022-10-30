@@ -128,38 +128,24 @@ begin
   end;
 end;
 {$ELSE}
-var
-  sr : TSearchRec;
-begin
-  Result := '';
-  if FindFirst('/dev/ttyS*', $FFFFFFFF, sr) = 0 then
+  function Check(AMask: String): String;
+  begin
+  var
+    sr : TSearchRec;
+  begin
+    Result := '';
+    if FindFirst(AMask, $FFFFFFFF, sr) = 0 then
     repeat
       if (sr.Attr and $FFFFFFFF) = Sr.Attr then
-      begin
-        if Result <> '' then
-          Result := Result + ',';
-        Result := Result + '/dev/' + sr.Name;
-      end;
+        Result := Result + '/dev/' + sr.Name + ',';
     until FindNext(sr) <> 0;
-  FindClose(sr);
-  if FindFirst('/dev/ttyUSB*', $FFFFFFFF, sr) = 0 then begin
-    repeat
-      if (sr.Attr and $FFFFFFFF) = Sr.Attr then begin
-        if Result <> '' then Result := Result + ',';
-        Result := Result + '/dev/' + sr.Name;
-      end;
-    until FindNext(sr) <> 0;
+    FindClose(sr);
   end;
-  FindClose(sr);
-  if FindFirst('/dev/ttyAM*', $FFFFFFFF, sr) = 0 then begin
-    repeat
-      if (sr.Attr and $FFFFFFFF) = Sr.Attr then begin
-        if Result <> '' then Result := Result + ',';
-        Result := Result + '/dev/' + sr.Name;
-      end;
-    until FindNext(sr) <> 0;
-  end;
-  FindClose(sr);
+
+begin
+  Result := Check('/dev/ttyS*') + Check('/dev/ttyUSB*') + Check('/dev/ttyAM*');
+  if Result <> '' then
+    Delete(Result, Length(Result), 1);
 end;
 {$ENDIF}
 

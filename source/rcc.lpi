@@ -100,9 +100,6 @@
         <UnitName Value="rccAbout"/>
       </Unit9>
     </Units>
-    <Debugger>
-      <Backend Value="{DA8A8EB6-E6A4-46E5-B33E-CD355A433435}"/>
-    </Debugger>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
